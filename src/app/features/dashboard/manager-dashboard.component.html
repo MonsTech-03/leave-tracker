@@ -1,0 +1,481 @@
+<div class="manager-dashboard">
+
+  <!-- ================= HERO ================= -->
+
+  <section class="hero-card">
+
+    <div class="hero-left">
+
+      <div class="profile-avatar">
+        {{ userName.charAt(0) }}
+      </div>
+
+      <div>
+
+        <span class="welcome">
+          Good Morning 👋
+        </span>
+
+        <h1>{{ userName }}</h1>
+
+        <p>
+          Department Manager • {{ department }}
+        </p>
+
+      </div>
+
+    </div>
+
+    <div class="hero-actions">
+
+      <button
+        mat-flat-button
+        color="primary"
+        routerLink="/leave/pending">
+
+        <mat-icon>assignment_turned_in</mat-icon>
+
+        Pending Approvals
+
+      </button>
+
+      <button
+        mat-stroked-button
+        routerLink="/employee/list">
+
+        <mat-icon>groups</mat-icon>
+
+        My Team
+
+      </button>
+
+    </div>
+
+  </section>
+
+  <!-- ================= KPI CARDS ================= -->
+
+  <section class="kpi-grid">
+
+    <div class="kpi-card blue">
+
+      <div class="icon">
+        <mat-icon>pending_actions</mat-icon>
+      </div>
+
+      <div>
+
+        <span>Pending Approvals</span>
+
+        <h2>{{ pendingApprovals }}</h2>
+
+        <small>Waiting for review</small>
+
+      </div>
+
+    </div>
+
+    <div class="kpi-card green">
+
+      <div class="icon">
+        <mat-icon>groups</mat-icon>
+      </div>
+
+      <div>
+
+        <span>Team Members</span>
+
+        <h2>{{ teamMembers }}</h2>
+
+        <small>Reporting to you</small>
+
+      </div>
+
+    </div>
+
+    <div class="kpi-card orange">
+
+      <div class="icon">
+        <mat-icon>event_busy</mat-icon>
+      </div>
+
+      <div>
+
+        <span>On Leave Today</span>
+
+        <h2>{{ onLeaveToday }}</h2>
+
+        <small>Employees</small>
+
+      </div>
+
+    </div>
+
+    <div class="kpi-card purple">
+
+      <div class="icon">
+        <mat-icon>trending_up</mat-icon>
+      </div>
+
+      <div>
+
+        <span>Attendance</span>
+
+        <h2>{{ attendance }}%</h2>
+
+        <small>This Week</small>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ================= TEAM OVERVIEW ================= -->
+
+  <section class="top-grid">
+
+    <!-- Pending Requests -->
+
+    <div class="card">
+
+      <div class="card-header">
+
+        <div>
+
+          <h3>Pending Leave Requests</h3>
+
+          <span>Requires your approval</span>
+
+        </div>
+
+      </div>
+
+      <table class="leave-table">
+
+        <thead>
+
+          <tr>
+
+            <th>Employee</th>
+
+            <th>Leave</th>
+
+            <th>Days</th>
+
+            <th>Status</th>
+
+            <th>Action</th>
+
+          </tr>
+
+        </thead>
+
+        <tbody>
+
+          <tr *ngFor="let request of pendingRequests">
+
+            <td>{{ request.employeeName }}</td>
+
+            <td>{{ request.leaveType }}</td>
+
+            <td>{{ request.days }}</td>
+
+            <td>
+
+              <span class="status pending">
+                Pending
+              </span>
+
+            </td>
+
+            <td>
+
+              <button mat-icon-button color="primary">
+
+                <mat-icon>check_circle</mat-icon>
+
+              </button>
+
+              <button mat-icon-button color="warn">
+
+                <mat-icon>cancel</mat-icon>
+
+              </button>
+
+            </td>
+
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+    <!-- Team Summary -->
+
+    <div class="card">
+
+      <div class="card-header">
+
+        <div>
+
+          <h3>Team Summary</h3>
+
+          <span>Today's overview</span>
+
+        </div>
+
+      </div>
+
+      <div class="summary-list">
+
+        <div class="summary-item">
+
+          <strong>{{ workingToday }}</strong>
+
+          <span>Working Today</span>
+
+        </div>
+
+        <div class="summary-item">
+
+          <strong>{{ onLeaveToday }}</strong>
+
+          <span>On Leave</span>
+
+        </div>
+
+        <div class="summary-item">
+
+          <strong>{{ remoteEmployees }}</strong>
+
+          <span>Work From Home</span>
+
+        </div>
+
+        <div class="summary-item">
+
+          <strong>{{ upcomingLeaves }}</strong>
+
+          <span>Upcoming Leaves</span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+    <!-- ================= TEAM AVAILABILITY ================= -->
+
+  <section class="bottom-grid">
+
+    <div class="card">
+
+      <div class="card-header">
+
+        <div>
+
+          <h3>Team Availability</h3>
+
+          <span>Department overview</span>
+
+        </div>
+
+      </div>
+
+      <apx-chart
+        *ngIf="teamChart.series"
+        [series]="teamChart.series"
+        [chart]="teamChart.chart"
+        [xaxis]="teamChart.xaxis"
+        [dataLabels]="teamChart.dataLabels"
+        [colors]="teamChart.colors"
+        [plotOptions]="teamChart.plotOptions">
+      </apx-chart>
+
+    </div>
+
+    <!-- ================= TEAM PERFORMANCE ================= -->
+
+    <div class="card">
+
+      <div class="card-header">
+
+        <div>
+
+          <h3>Team Performance</h3>
+
+          <span>This Month</span>
+
+        </div>
+
+      </div>
+
+      <div class="performance-list">
+
+        <div class="performance-item">
+
+          <span>Attendance</span>
+
+          <strong>{{ attendance }}%</strong>
+
+        </div>
+
+        <div class="performance-item">
+
+          <span>Leave Utilization</span>
+
+          <strong>74%</strong>
+
+        </div>
+
+        <div class="performance-item">
+
+          <span>Approvals Completed</span>
+
+          <strong>32</strong>
+
+        </div>
+
+        <div class="performance-item">
+
+          <span>Pending Requests</span>
+
+          <strong>{{ pendingApprovals }}</strong>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ================= QUICK ACTIONS ================= -->
+
+  <section class="quick-actions">
+
+    <div
+      class="action-card"
+      routerLink="/leave/pending">
+
+      <mat-icon>assignment_turned_in</mat-icon>
+
+      <span>Approve Leave</span>
+
+    </div>
+
+    <div
+      class="action-card"
+      routerLink="/employee/list">
+
+      <mat-icon>groups</mat-icon>
+
+      <span>My Team</span>
+
+    </div>
+
+    <div
+      class="action-card"
+      routerLink="/leave/calendar">
+
+      <mat-icon>calendar_month</mat-icon>
+
+      <span>Team Calendar</span>
+
+    </div>
+
+    <div
+      class="action-card"
+      routerLink="/reports">
+
+      <mat-icon>bar_chart</mat-icon>
+
+      <span>Reports</span>
+
+    </div>
+
+  </section>
+
+  <!-- ================= RECENT ACTIVITY ================= -->
+
+  <section class="card">
+
+    <div class="card-header">
+
+      <div>
+
+        <h3>Recent Manager Activity</h3>
+
+        <span>Latest actions</span>
+
+      </div>
+
+    </div>
+
+    <div class="activity-list">
+
+      <div class="activity">
+
+        <div class="activity-dot approved"></div>
+
+        <div>
+
+          <strong>Leave Approved</strong>
+
+          <small>You approved Meera Joshi's Annual Leave.</small>
+
+        </div>
+
+      </div>
+
+      <div class="activity">
+
+        <div class="activity-dot pending"></div>
+
+        <div>
+
+          <strong>New Leave Request</strong>
+
+          <small>Rahul Sharma submitted a Sick Leave request.</small>
+
+        </div>
+
+      </div>
+
+      <div class="activity">
+
+        <div class="activity-dot holiday"></div>
+
+        <div>
+
+          <strong>Upcoming Holiday</strong>
+
+          <small>Independence Day is on 15 August.</small>
+
+        </div>
+
+      </div>
+
+      <div class="activity">
+
+        <div class="activity-dot approved"></div>
+
+        <div>
+
+          <strong>Team Attendance Updated</strong>
+
+          <small>Weekly attendance report has been generated.</small>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</div>

@@ -1,0 +1,162 @@
+<div class="login-container">
+
+  <!-- LEFT PANEL -->
+  <section class="left-panel">
+
+    <div class="logo">
+      <img
+         src="/logo/LeaveTrackPro_Dark.svg"
+        alt="LeaveTrack Pro"
+        class="app-logo">
+    </div>
+
+    <p class="subtitle">
+      Modern HR Leave Management Platform
+    </p>
+
+    <p class="description">
+      Streamline leave requests, approvals and HR analytics from one secure enterprise portal.
+    </p>
+
+    <div class="feature-list">
+
+      <div class="feature">
+        <mat-icon>calendar_month</mat-icon>
+
+        <div>
+          <h3>Leave Calendar</h3>
+          <p>Manage leave effortlessly.</p>
+        </div>
+
+      </div>
+
+      <div class="feature">
+
+        <mat-icon>task_alt</mat-icon>
+
+        <div>
+          <h3>Approval Workflow</h3>
+          <p>Fast multi-level approvals.</p>
+        </div>
+
+      </div>
+
+      <div class="feature">
+
+        <mat-icon>analytics</mat-icon>
+
+        <div>
+          <h3>HR Analytics</h3>
+          <p>Integrated Power BI dashboards.</p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- RIGHT PANEL -->
+  <section class="right-panel">
+
+    <div class="login-card">
+
+      <h2>Welcome Back 👋</h2>
+
+      <p class="login-text">
+        Sign in to continue
+      </p>
+
+      <mat-form-field appearance="outline" class="full-width">
+
+        <mat-label>Email</mat-label>
+
+        <mat-icon matPrefix>email</mat-icon>
+
+        <input
+          matInput
+          [(ngModel)]="email"
+          type="email">
+
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+
+        <mat-label>Password</mat-label>
+
+        <mat-icon matPrefix>lock</mat-icon>
+
+        <input
+          matInput
+          [(ngModel)]="password"
+          [type]="hidePassword ? 'password' : 'text'">
+
+        <button
+          mat-icon-button
+          matSuffix
+          type="button"
+          (click)="hidePassword = !hidePassword">
+
+          <mat-icon>
+            {{ hidePassword ? 'visibility_off' : 'visibility' }}
+          </mat-icon>
+
+        </button>
+
+      </mat-form-field>
+
+      <button
+        mat-flat-button
+        color="primary"
+        class="login-btn"
+        (click)="login()">
+
+        Sign In
+
+      </button>
+
+      <details class="demo-box">
+
+        <summary>
+          Demo Accounts
+        </summary>
+
+        <div class="demo-accounts">
+
+  <h4>Demo Accounts</h4>
+
+  <button mat-stroked-button class="demo-btn employee"
+          (click)="quickLogin('employee11@company.com')">
+
+      👤 Employee
+      <small>employee11@company.com</small>
+
+  </button>
+
+  <button mat-stroked-button class="demo-btn manager"
+          (click)="quickLogin('manager1@company.com')">
+
+      👨‍💼 Manager
+      <small>manager1@company.com</small>
+
+  </button>
+
+  <button mat-stroked-button class="demo-btn hr"
+          (click)="quickLogin('hr1@company.com')">
+
+      🛡 HR Admin
+      <small>hr1@company.com</small>
+
+  </button>
+
+
+
+        </div>
+
+      </details>
+
+    </div>
+
+  </section>
+
+</div>

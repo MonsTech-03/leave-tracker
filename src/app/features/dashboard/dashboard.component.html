@@ -1,0 +1,407 @@
+<div class="dashboard">
+
+  <!-- ================= HERO ================= -->
+
+  <section class="hero-card">
+
+    <div class="hero-content">
+
+      <div class="hero-text">
+
+        <span class="hero-badge">
+          Workforce Overview
+        </span>
+
+        <h1>
+  {{ greeting }},
+  <span>{{ userName }}</span> 👋
+</h1>
+
+        <p>
+  HR Administrator • LeaveTrack Pro
+</p>
+
+<div class="hero-meta">
+  <mat-icon>calendar_today</mat-icon>
+  <span>{{ currentDate }}</span>
+
+  <mat-icon>schedule</mat-icon>
+  <span>{{ currentTime }}</span>
+</div>
+
+        <div class="hero-stats">
+
+          <div class="mini-card">
+
+            <div class="mini-icon blue">
+              <mat-icon>groups</mat-icon>
+            </div>
+
+            <div>
+
+              <h3>{{ statCards[6]?.value || 0 }}</h3>
+
+              <span>Employees Available</span>
+
+            </div>
+
+          </div>
+
+          <div class="mini-card">
+
+            <div class="mini-icon orange">
+              <mat-icon>event_busy</mat-icon>
+            </div>
+
+            <div>
+
+              <h3>{{ statCards[5]?.value || 0 }}</h3>
+
+              <span>Upcoming Holidays</span>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="hero-actions">
+
+        <button
+          mat-flat-button
+          color="primary"
+          routerLink="/leave/apply">
+
+          <mat-icon>add</mat-icon>
+
+          Apply Leave
+
+        </button>
+
+        <button
+          mat-stroked-button>
+
+          <mat-icon>download</mat-icon>
+
+          Download Report
+
+        </button>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- ================= KPI ================= -->
+
+  <section class="kpi-grid">
+
+    <div
+      class="kpi-card"
+      *ngFor="let stat of statCards">
+
+      <div
+        class="kpi-icon"
+        [ngClass]="{
+  'blue': stat.label === 'Employees',
+  'green': stat.label === 'Departments',
+  'orange': stat.label === 'Pending Approvals',
+  'cyan': stat.label === 'Approved',
+  'indigo': stat.label === 'Attendance',
+  'purple': stat.label === 'On Leave Today'
+}">
+
+        <mat-icon>
+
+          {{ stat.icon }}
+
+        </mat-icon>
+
+      </div>
+
+      <div class="kpi-content">
+
+        <span>
+
+          {{ stat.label }}
+
+        </span>
+
+        <h2>
+
+          {{ stat.value }}
+
+        </h2>
+
+        <small>
+
+          This Month
+
+        </small>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- ================= CHARTS ================= -->
+
+  <section class="chart-row">
+
+    <div class="chart-card large">
+
+      <div class="card-header">
+
+        <div>
+
+          <h3>Leave Trends</h3>
+
+          <span>Monthly Leave Statistics</span>
+
+        </div>
+
+      </div>
+
+      <apx-chart
+        *ngIf="barChartOptions.series"
+        [series]="barChartOptions.series"
+        [chart]="barChartOptions.chart"
+        [plotOptions]="barChartOptions.plotOptions"
+        [stroke]="barChartOptions.stroke"
+        [xaxis]="barChartOptions.xaxis"
+        [colors]="barChartOptions.colors"
+        [legend]="barChartOptions.legend"
+        [dataLabels]="barChartOptions.dataLabels">
+      </apx-chart>
+
+    </div>
+
+    <div class="chart-card small">
+
+      <div class="card-header">
+
+        <div>
+
+          <h3>Department Overview</h3>
+
+          <span>Leave Distribution</span>
+
+        </div>
+
+      </div>
+
+      <apx-chart
+        *ngIf="donutChartOptions.series"
+        [series]="donutChartOptions.series"
+        [chart]="donutChartOptions.chart"
+        [labels]="donutChartOptions.labels"
+        [colors]="donutChartOptions.colors"
+        [legend]="donutChartOptions.legend">
+      </apx-chart>
+
+    </div>
+
+  </section>
+
+    <!-- ================= BOTTOM SECTION ================= -->
+
+  <section class="bottom-grid">
+
+    <!-- ================= RECENT LEAVE REQUESTS ================= -->
+
+    <div class="table-card">
+
+      <div class="card-header">
+
+        <div>
+
+          <h3>Recent Leave Requests</h3>
+
+          <span>Latest employee leave applications</span>
+
+        </div>
+
+        <button
+          mat-button
+          color="primary">
+
+          View All
+
+        </button>
+
+      </div>
+
+      <table class="modern-table">
+
+        <thead>
+
+          <tr>
+
+            <th>Employee</th>
+
+            <th>Leave Type</th>
+
+            <th>Days</th>
+
+            <th>Applied On</th>
+
+            <th>Status</th>
+
+          </tr>
+
+        </thead>
+
+        <tbody>
+
+          <tr *ngFor="let leave of recentLeaves">
+
+            <td>
+
+              <div class="employee-info">
+
+                <div class="avatar">
+
+                  {{ leave.employeeName.charAt(0) }}
+
+                </div>
+
+                <div>
+
+                  <strong>{{ leave.employeeName }}</strong>
+
+                </div>
+
+              </div>
+
+            </td>
+
+            <td>
+
+              <span class="leave-type">
+
+                {{ leave.leaveType }}
+
+              </span>
+
+            </td>
+
+            <td>
+
+              {{ leave.days }}
+
+            </td>
+
+            <td>
+
+              {{ leave.appliedDate }}
+
+            </td>
+
+            <td>
+
+              <span
+                class="status-pill"
+                [ngClass]="leave.status.toLowerCase()">
+
+                <mat-icon>
+
+                  {{ getStatusIcon(leave.status) }}
+
+                </mat-icon>
+
+                {{ leave.status }}
+
+              </span>
+
+            </td>
+
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+
+
+    <!-- ================= TEAM AVAILABILITY ================= -->
+
+    <div class="team-card">
+
+      <div class="card-header">
+
+        <div>
+
+          <h3>Team Availability</h3>
+
+          <span>Current employee status</span>
+
+        </div>
+
+        <button
+          mat-button
+          color="primary">
+
+          View All
+
+        </button>
+
+      </div>
+
+      <div
+        class="team-member"
+        *ngFor="let emp of teamAvailability">
+
+        <div class="employee-left">
+
+          <div class="avatar">
+
+            {{ emp.name.charAt(0) }}
+
+          </div>
+
+          <div>
+
+            <strong>
+
+              {{ emp.name }}
+
+            </strong>
+
+            <small>
+
+              {{ emp.department }}
+
+            </small>
+
+          </div>
+
+        </div>
+
+        <span
+          class="availability-pill"
+          [class.available]="emp.status === 'Available'"
+          [class.onleave]="emp.status === 'On Leave'">
+
+          <span class="dot"></span>
+
+          {{ emp.status }}
+
+        </span>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</div>

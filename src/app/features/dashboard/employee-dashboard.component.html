@@ -1,0 +1,599 @@
+<div class="employee-dashboard">
+
+  <!-- ================= HERO ================= -->
+
+  <section class="hero-card">
+
+    <div class="hero-left">
+
+      <div class="profile-avatar">
+
+        {{ userName.charAt(0) }}
+
+      </div>
+
+      <div>
+
+        <span class="welcome">
+          Good Morning 👋
+        </span>
+
+        <h1>{{ userName }}</h1>
+
+        <p>
+          Product Manager • Human Resources • Mumbai
+        </p>
+
+      </div>
+
+    </div>
+
+    <div class="hero-actions">
+
+      <button
+        mat-flat-button
+        color="primary"
+        routerLink="/leave/apply">
+
+        <mat-icon>add</mat-icon>
+
+        Apply Leave
+
+      </button>
+
+      <button
+        mat-stroked-button
+        routerLink="/leave/history">
+
+        <mat-icon>history</mat-icon>
+
+        My Leaves
+
+      </button>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- ================= KPI ================= -->
+
+  <section class="kpi-grid">
+
+    <div class="kpi-card blue">
+
+      <div class="icon">
+
+        <mat-icon>beach_access</mat-icon>
+
+      </div>
+
+      <div>
+
+        <span>Annual Leave</span>
+
+        <h2>24</h2>
+
+        <small>Days Remaining</small>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="kpi-card green">
+
+      <div class="icon">
+
+        <mat-icon>local_hospital</mat-icon>
+
+      </div>
+
+      <div>
+
+        <span>Sick Leave</span>
+
+        <h2>12</h2>
+
+        <small>Days Remaining</small>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="kpi-card orange">
+
+      <div class="icon">
+
+        <mat-icon>event_available</mat-icon>
+
+      </div>
+
+      <div>
+
+        <span>Casual Leave</span>
+
+        <h2>10</h2>
+
+        <small>Days Remaining</small>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="kpi-card purple">
+
+      <div class="icon">
+
+        <mat-icon>trending_up</mat-icon>
+
+      </div>
+
+      <div>
+
+        <span>Attendance</span>
+
+        <h2>83%</h2>
+
+        <small>This Month</small>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- ================= TOP GRID ================= -->
+
+  <section class="top-grid">
+
+
+
+    <!-- Leave Usage -->
+
+    <div class="card">
+
+      <div class="card-header">
+
+        <div>
+
+          <h3>My Leave Usage</h3>
+
+          <span>Leave consumed this year</span>
+
+        </div>
+
+      </div>
+
+      <apx-chart
+        *ngIf="leaveUsageChart.series"
+        [series]="leaveUsageChart.series"
+        [chart]="leaveUsageChart.chart"
+        [labels]="leaveUsageChart.labels"
+        [colors]="leaveUsageChart.colors"
+        [legend]="leaveUsageChart.legend">
+      </apx-chart>
+
+    </div>
+
+
+
+    <!-- Holidays -->
+
+    <div class="card">
+
+      <div class="card-header">
+
+        <div>
+
+          <h3>Upcoming Holidays</h3>
+
+          <span>National Holidays</span>
+
+        </div>
+
+      </div>
+
+      <div class="holiday-list">
+
+        <div class="holiday">
+
+          <div class="holiday-icon">
+
+            🇮🇳
+
+          </div>
+
+          <div>
+
+            <strong>Independence Day</strong>
+
+            <small>15 August 2026</small>
+
+          </div>
+
+        </div>
+
+
+
+        <div class="holiday">
+
+          <div class="holiday-icon">
+
+            🎉
+
+          </div>
+
+          <div>
+
+            <strong>Gandhi Jayanti</strong>
+
+            <small>2 October 2026</small>
+
+          </div>
+
+        </div>
+
+
+
+        <div class="holiday">
+
+          <div class="holiday-icon">
+
+            🎄
+
+          </div>
+
+          <div>
+
+            <strong>Christmas</strong>
+
+            <small>25 December 2026</small>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+    <!-- ================= BOTTOM GRID ================= -->
+
+  <section class="bottom-grid">
+
+    <!-- ================= MY LEAVE REQUESTS ================= -->
+
+    <div class="card">
+
+      <div class="card-header">
+
+        <div>
+
+          <h3>My Leave Requests</h3>
+
+          <span>Recent leave applications</span>
+
+        </div>
+
+        <button
+          mat-button
+          color="primary"
+          routerLink="/leave/history">
+
+          View All
+
+        </button>
+
+      </div>
+
+      <table class="leave-table">
+
+        <thead>
+
+          <tr>
+
+            <th>Leave Type</th>
+            <th>Days</th>
+            <th>Applied On</th>
+            <th>Status</th>
+
+          </tr>
+
+        </thead>
+
+        <tbody>
+
+          <tr *ngFor="let leave of recentLeaves">
+
+            <td>
+
+              {{ leave.leaveType }}
+
+            </td>
+
+            <td>
+
+              {{ leave.days }}
+
+            </td>
+
+            <td>
+
+              {{ leave.appliedDate }}
+
+            </td>
+
+            <td>
+
+              <span
+                class="status"
+                [ngClass]="leave.status.toLowerCase()">
+
+                {{ leave.status }}
+
+              </span>
+
+            </td>
+
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+
+
+    <!-- ================= UPCOMING LEAVE ================= -->
+
+    <div class="card">
+
+      <div class="card-header">
+
+        <div>
+
+          <h3>Upcoming Leave</h3>
+
+          <span>Your next approved leave</span>
+
+        </div>
+
+      </div>
+
+      <div class="upcoming-card">
+
+        <div class="leave-icon">
+
+          <mat-icon>
+
+            beach_access
+
+          </mat-icon>
+
+        </div>
+
+        <h4>
+
+          Annual Leave
+
+        </h4>
+
+        <p>
+
+          15 Aug 2026 – 18 Aug 2026
+
+        </p>
+
+        <span class="approved-pill">
+
+          Approved
+
+        </span>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- ================= QUICK ACTIONS ================= -->
+
+  <section class="quick-actions">
+
+    <div
+      class="action-card"
+      routerLink="/leave/apply">
+
+      <mat-icon>
+
+        add_circle
+
+      </mat-icon>
+
+      <span>
+
+        Apply Leave
+
+      </span>
+
+    </div>
+
+
+
+    <div
+      class="action-card"
+      routerLink="/leave/history">
+
+      <mat-icon>
+
+        history
+
+      </mat-icon>
+
+      <span>
+
+        Leave History
+
+      </span>
+
+    </div>
+
+
+
+    <div
+      class="action-card"
+      routerLink="/leave/calendar">
+
+      <mat-icon>
+
+        calendar_month
+
+      </mat-icon>
+
+      <span>
+
+        Leave Calendar
+
+      </span>
+
+    </div>
+
+
+
+    <div
+      class="action-card"
+      routerLink="/profile">
+
+      <mat-icon>
+
+        person
+
+      </mat-icon>
+
+      <span>
+
+        My Profile
+
+      </span>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- ================= RECENT ACTIVITY ================= -->
+
+  <section class="card">
+
+    <div class="card-header">
+
+      <div>
+
+        <h3>
+
+          Recent Activity
+
+        </h3>
+
+        <span>
+
+          Latest updates
+
+        </span>
+
+      </div>
+
+    </div>
+
+    <div class="activity-list">
+
+      <div class="activity">
+
+        <div class="activity-dot approved"></div>
+
+        <div>
+
+          <strong>
+
+            Annual Leave Approved
+
+          </strong>
+
+          <small>
+
+            HR approved your leave request yesterday.
+
+          </small>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="activity">
+
+        <div class="activity-dot pending"></div>
+
+        <div>
+
+          <strong>
+
+            Sick Leave Submitted
+
+          </strong>
+
+          <small>
+
+            Waiting for manager approval.
+
+          </small>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="activity">
+
+        <div class="activity-dot holiday"></div>
+
+        <div>
+
+          <strong>
+
+            Independence Day Holiday
+
+          </strong>
+
+          <small>
+
+            Office closed on 15 August.
+
+          </small>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</div>

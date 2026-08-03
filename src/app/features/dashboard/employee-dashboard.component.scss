@@ -1,0 +1,528 @@
+/* =====================================================
+   EMPLOYEE DASHBOARD
+===================================================== */
+
+.employee-dashboard {
+  padding: 28px;
+  background: #F5F7FB;
+  min-height: 100vh;
+}
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero-card {
+  background: #fff;
+  border-radius: 24px;
+  padding: 30px 36px;
+  margin-bottom: 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, .08);
+}
+
+.hero-left {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.profile-avatar {
+  width: 82px;
+  height: 82px;
+  border-radius: 50%;
+  background: linear-gradient(135deg,#2563EB,#60A5FA);
+  color: white;
+  font-size: 34px;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.welcome {
+  color: #64748B;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.hero-left h1 {
+  margin: 6px 0;
+  font-size: 36px;
+  color: #1E293B;
+}
+
+.hero-left p {
+  color: #64748B;
+  font-size: 15px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 14px;
+}
+
+.hero-actions button {
+  height: 48px;
+  border-radius: 12px;
+  min-width: 150px;
+}
+
+/* =====================================================
+   KPI GRID
+===================================================== */
+
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 22px;
+  margin-bottom: 30px;
+}
+
+.kpi-card {
+  background: white;
+  border-radius: 22px;
+  padding: 22px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  box-shadow: 0 10px 25px rgba(15,23,42,.08);
+  transition: .3s;
+}
+
+.kpi-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(15,23,42,.14);
+}
+
+.kpi-card .icon {
+  width: 70px;
+  height: 70px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.kpi-card .icon mat-icon {
+  color: white;
+  font-size: 34px;
+  width: 34px;
+  height: 34px;
+  line-height: 34px;
+}
+
+.kpi-card h2 {
+  margin: 4px 0;
+  font-size: 34px;
+  color: #1E293B;
+}
+
+.kpi-card span {
+  display: block;
+  color: #64748B;
+  font-size: 14px;
+}
+
+.kpi-card small {
+  color: #94A3B8;
+}
+
+/* =====================================================
+   KPI COLORS
+===================================================== */
+
+.blue .icon {
+  background: linear-gradient(135deg,#2563EB,#60A5FA);
+}
+
+.green .icon {
+  background: linear-gradient(135deg,#16A34A,#4ADE80);
+}
+
+.orange .icon {
+  background: linear-gradient(135deg,#F59E0B,#FDBA74);
+}
+
+.purple .icon {
+  background: linear-gradient(135deg,#7C3AED,#C084FC);
+}
+
+/* =====================================================
+   TOP GRID
+===================================================== */
+
+.top-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 24px;
+  margin-bottom: 28px;
+}
+
+.card {
+  background: white;
+  border-radius: 22px;
+  padding: 24px;
+  box-shadow: 0 10px 25px rgba(15,23,42,.08);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.card-header h3 {
+  margin: 0;
+  font-size: 24px;
+  color: #1E293B;
+}
+
+.card-header span {
+  color: #64748B;
+  font-size: 13px;
+}
+
+/* =====================================================
+   HOLIDAYS
+===================================================== */
+
+.holiday-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.holiday {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  border-radius: 14px;
+  background: #F8FAFC;
+  transition: .25s;
+}
+
+.holiday:hover {
+  background: #EFF6FF;
+}
+
+.holiday-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+}
+
+.holiday strong {
+  display: block;
+  color: #1E293B;
+}
+
+.holiday small {
+  color: #64748B;
+}
+
+/* =====================================================
+   BOTTOM GRID
+===================================================== */
+
+.bottom-grid{
+  display:grid;
+  grid-template-columns:2fr 1fr;
+  gap:24px;
+  margin-bottom:28px;
+}
+
+/* =====================================================
+   TABLE
+===================================================== */
+
+.leave-table{
+  width:100%;
+  border-collapse:collapse;
+}
+
+.leave-table thead{
+  background:#F8FAFC;
+}
+
+.leave-table th{
+  padding:16px;
+  text-align:left;
+  color:#64748B;
+  font-size:13px;
+  font-weight:600;
+  border-bottom:1px solid #E2E8F0;
+}
+
+.leave-table td{
+  padding:18px 16px;
+  border-bottom:1px solid #EDF2F7;
+  color:#334155;
+  font-size:14px;
+}
+
+.leave-table tbody tr{
+  transition:.25s;
+}
+
+.leave-table tbody tr:hover{
+  background:#F8FAFC;
+}
+
+/* =====================================================
+   STATUS PILLS
+===================================================== */
+
+.status{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:7px 16px;
+  border-radius:999px;
+  font-size:12px;
+  font-weight:700;
+}
+
+.status.approved{
+  background:#DCFCE7;
+  color:#15803D;
+}
+
+.status.pending{
+  background:#FEF3C7;
+  color:#B45309;
+}
+
+.status.rejected{
+  background:#FEE2E2;
+  color:#B91C1C;
+}
+
+/* =====================================================
+   UPCOMING LEAVE
+===================================================== */
+
+.upcoming-card{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  padding:30px 20px;
+}
+
+.leave-icon{
+  width:78px;
+  height:78px;
+  border-radius:22px;
+  background:linear-gradient(135deg,#2563EB,#60A5FA);
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  margin-bottom:18px;
+}
+
+.leave-icon mat-icon{
+  color:#fff;
+  font-size:38px;
+  width:38px;
+  height:38px;
+}
+
+.upcoming-card h4{
+  margin:10px 0;
+  font-size:22px;
+  color:#1E293B;
+}
+
+.upcoming-card p{
+  color:#64748B;
+  text-align:center;
+  margin-bottom:18px;
+}
+
+.approved-pill{
+  padding:8px 18px;
+  border-radius:999px;
+  background:#DCFCE7;
+  color:#15803D;
+  font-size:13px;
+  font-weight:700;
+}
+
+/* =====================================================
+   QUICK ACTIONS
+===================================================== */
+
+.quick-actions{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:22px;
+  margin-bottom:30px;
+}
+
+.action-card{
+  background:white;
+  border-radius:20px;
+  padding:26px;
+  cursor:pointer;
+
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:16px;
+
+  box-shadow:0 8px 22px rgba(15,23,42,.08);
+
+  transition:.3s;
+}
+
+.action-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 18px 35px rgba(15,23,42,.14);
+}
+
+.action-card mat-icon{
+  width:52px;
+  height:52px;
+  border-radius:16px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  background:#EFF6FF;
+  color:#2563EB;
+
+  font-size:30px;
+}
+
+.action-card span{
+  font-weight:600;
+  color:#1E293B;
+}
+
+/* =====================================================
+   RECENT ACTIVITY
+===================================================== */
+
+.activity-list{
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+}
+
+.activity{
+  display:flex;
+  gap:16px;
+  align-items:flex-start;
+  padding:16px 0;
+  border-bottom:1px solid #EDF2F7;
+}
+
+.activity:last-child{
+  border-bottom:none;
+}
+
+.activity-dot{
+  width:12px;
+  height:12px;
+  border-radius:50%;
+  margin-top:6px;
+}
+
+.activity-dot.approved{
+  background:#22C55E;
+}
+
+.activity-dot.pending{
+  background:#F59E0B;
+}
+
+.activity-dot.holiday{
+  background:#2563EB;
+}
+
+.activity strong{
+  display:block;
+  margin-bottom:4px;
+  color:#1E293B;
+}
+
+.activity small{
+  color:#64748B;
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media(max-width:1200px){
+
+  .kpi-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .top-grid,
+  .bottom-grid{
+    grid-template-columns:1fr;
+  }
+
+  .quick-actions{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+}
+
+@media(max-width:768px){
+
+  .employee-dashboard{
+    padding:18px;
+  }
+
+  .hero-card{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:20px;
+  }
+
+  .hero-left{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  .hero-actions{
+    width:100%;
+    flex-direction:column;
+  }
+
+  .hero-actions button{
+    width:100%;
+  }
+
+  .kpi-grid{
+    grid-template-columns:1fr;
+  }
+
+  .quick-actions{
+    grid-template-columns:1fr;
+  }
+
+  .leave-table{
+    display:block;
+    overflow-x:auto;
+  }
+
+}
