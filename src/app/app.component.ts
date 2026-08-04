@@ -6,6 +6,7 @@ import { HeaderComponent } from './shared/components/header/header.component';
 import { SidebarComponent } from './shared/components/sidebar/sidebar.component';
 import { AuthService } from './services/auth.service';
 
+
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -87,21 +88,27 @@ import { AuthService } from './services/auth.service';
   `]
 })
 export class AppComponent {
-  showLayout = true;
+  showLayout = false;
   sidebarOpen = false;
   sidebarCollapsed = false;
   isDarkMode = false;
 
   constructor(private router: Router) {
-    this.router.events
-      .pipe(filter(event => event instanceof NavigationEnd))
-      .subscribe((event: any) => {
-        this.showLayout = event.url !== '/login';
-        this.sidebarOpen = false;
-      });
 
-    this.isDarkMode = localStorage.getItem('darkMode') === 'true';
-  }
+  // Set the layout correctly as soon as the app starts
+  this.showLayout = !this.router.url.startsWith('/login');
+
+  this.router.events
+    .pipe(filter((event): event is NavigationEnd => event instanceof NavigationEnd))
+    .subscribe(event => {
+      this.showLayout = !event.urlAfterRedirects.startsWith('/login');
+      this.sidebarOpen = false;
+    });
+
+
+
+  this.isDarkMode = localStorage.getItem('darkMode') === 'true';
+}
 
   toggleDarkMode(): void {
     this.isDarkMode = !this.isDarkMode;

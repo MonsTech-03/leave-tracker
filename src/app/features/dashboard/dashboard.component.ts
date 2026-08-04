@@ -5,6 +5,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { ExportService } from '../../services/export.service';
+
 
 import {
   NgApexchartsModule,
@@ -92,8 +94,12 @@ public donutChartOptions = {} as DonutChartOptions;
   constructor(
     private authService: AuthService,
     private dashboardService: DashboardService,
-    private leaveService: LeaveService
+    private leaveService: LeaveService,
+    private exportService: ExportService
+
   ) {
+
+
 
     const user = this.authService.getCurrentUser();
     this.userName = user?.name || 'User';
@@ -221,7 +227,9 @@ public donutChartOptions = {} as DonutChartOptions;
       ]
     };
   }
-
+ downloadReport(): void {
+  this.exportService.exportCSV();
+}
   ngOnInit(): void {
   this.updateGreeting();
   this.loadData();
