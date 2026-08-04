@@ -1,19 +1,105 @@
 <div class="reports-page">
 
+  <!-- Header -->
   <div class="page-header">
     <h1>HR Analytics Reports</h1>
-    <p>Power BI Dashboard</p>
+    <p>Export latest leave data for Power BI Analytics</p>
   </div>
 
-  <div class="report-card">
+  <!-- Export Card -->
+  <div class="export-card">
 
-    <iframe
-      [src]="powerBiUrl"
-      width="100%"
-      height="850"
-      frameborder="0"
-      allowfullscreen>
-    </iframe>
+    <div>
+      <h3>Export Latest Leave Data</h3>
+      <p>
+        Download the latest leave records as a CSV file for Power BI analysis.
+      </p>
+    </div>
+
+    <button class="export-btn" (click)="exportCSV()">
+      📥 Export Leave Data
+    </button>
+
+  </div>
+
+  <!-- Workflow -->
+  <div class="workflow-card">
+
+    <h2>Power BI Integration Workflow</h2>
+
+    <div class="workflow">
+
+      <div class="step">
+        👤
+        <span>Employee Applies Leave</span>
+      </div>
+
+      <div class="arrow">➜</div>
+
+      <div class="step">
+        ✅
+        <span>Manager Approval</span>
+      </div>
+
+      <div class="arrow">➜</div>
+
+      <div class="step">
+        📤
+        <span>Export CSV</span>
+      </div>
+
+      <div class="arrow">➜</div>
+
+      <div class="step">
+        📊
+        <span>Refresh Power BI</span>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Analytics -->
+  <div class="analytics-card">
+
+    <h2>Analytics Available</h2>
+
+    <div class="analytics-grid">
+
+      <div class="analytics-box">
+        📈
+        <h4>Monthly Leave Trends</h4>
+      </div>
+
+      <div class="analytics-box">
+        🏢
+        <h4>Department-wise Analysis</h4>
+      </div>
+
+      <div class="analytics-box">
+        ✅
+        <h4>Leave Status Distribution</h4>
+      </div>
+
+      <div class="analytics-box">
+        🗓
+        <h4>Leave Type Breakdown</h4>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Dashboard Preview -->
+
+  <div class="preview-card">
+
+    <h2>Power BI Dashboard Preview</h2>
+
+    <img
+      src="powerbi/powerbi-dashboard.png"
+      alt="Power BI Dashboard"
+      class="dashboard-image">
 
   </div>
 
