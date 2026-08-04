@@ -32,9 +32,11 @@ https://github.com/MonsTech-03/leave-tracker
 
 ---
 
-### Power BI Dashboard
 
-*(Add your Power BI Service link here after publishing.)*
+
+## 📊 Power BI Dashboard
+
+🔗 [View Interactive Power BI Dashboard (Bosch SSO Required)](https://app.powerbi.com/groups/me/reports/a5ada373-0218-4da3-bf24-a49437686f39/d993fcc07a3909107015?experience=power-bi)
 
 ---
 
