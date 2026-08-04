@@ -221,31 +221,23 @@ The editable Power BI report is available here:
 
 ## Login Page
 
-<img src="screenshots/login.png"/>
-
----
+![Login Page](screenshots/login.png)
 
 ## HR Dashboard
 
-<img src="screenshots/hr-dashboard.png"/>
-
----
+![HR Dashboard](screenshots/hr-dashboard.png)
 
 ## Manager Dashboard
 
-<img src="screenshots/manager-dashboard.png"/>
-
----
+![Manager Dashboard](screenshots/manager-dashboard.png)
 
 ## Employee Dashboard
 
-<img src="screenshots/employee-dashboard.png"/>
-
----
+![Employee Dashboard](screenshots/employee-dashboard.png)
 
 ## Power BI Dashboard
 
-<img src="screenshots/powerbi-dashboard.png"/>
+![Power BI Dashboard](screenshots/powerbi-dashboard.png)
 
 ---
 
