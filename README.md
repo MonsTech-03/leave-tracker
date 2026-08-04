@@ -143,16 +143,20 @@ Interactive Dashboard
 Power BI Service
 ```
 
-### Analytics Included
+### Features
 
-- Employee Leave Analysis
-- Department Leave Distribution
-- Leave Status Overview
+- Employee Leave Analytics
+- Department-wise Leave Requests
+- Leave Status Distribution
 - Monthly Leave Trends
-- Leave Type Analysis
-- Interactive Filters
-- KPI Cards
-- Drill Down Reports
+- Leave Type Breakdown
+- Interactive Department, Status and Leave Type Filters
+
+### Power BI Project
+
+The editable Power BI report is available here:
+
+`powerbi/LeaveTrackPro.pbix`
 
 ---
 
@@ -292,15 +296,7 @@ dist/leave-tracker/browser
 
 ---
 
-# 👩‍💻 Developed By
 
-**B Monica**
-
-Software Engineering Intern Project
-
-Bosch Global Software Technologies
-
----
 
 # ⭐ Project Highlights
 
