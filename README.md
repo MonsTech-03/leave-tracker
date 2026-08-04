@@ -221,23 +221,23 @@ The editable Power BI report is available here:
 
 ## Login Page
 
-<img src="https://raw.githubusercontent.com/MonsTech-03/leave-tracker/main/screenshots/login.png" width="900"/>
+<img src="./screenshots/login.png" width="900"/>
 
 ## HR Dashboard
 
-<img src="https://raw.githubusercontent.com/MonsTech-03/leave-tracker/main/screenshots/hr-dashboard.png" width="900"/>
+<img src="./screenshots/hr-dashboard.png" width="900"/>
 
 ## Manager Dashboard
 
-<img src="https://raw.githubusercontent.com/MonsTech-03/leave-tracker/main/screenshots/manager-dashboard.png" width="900"/>
+<img src="./screenshots/manager-dashboard.png" width="900"/>
 
 ## Employee Dashboard
 
-<img src="https://raw.githubusercontent.com/MonsTech-03/leave-tracker/main/screenshots/employee-dashboard.png" width="900"/>
+<img src="./screenshots/employee-dashboard.png" width="900"/>
 
 ## Power BI Dashboard
 
-<img src="https://raw.githubusercontent.com/MonsTech-03/leave-tracker/main/screenshots/powerbi-dashboard.png" width="900"/>
+<img src="./screenshots/powerbi-dashboard.png" width="900"/>
 
 ---
 
